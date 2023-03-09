@@ -12,6 +12,7 @@ call plug#begin()
 	Plug 'junegunn/gv.vim'
 	Plug 'weirongxu/plantuml-previewer.vim'
 	Plug 'tyru/open-browser.vim'
+	Plug 'aklt/plantuml-syntax'
 call plug#end()
 
 syntax on

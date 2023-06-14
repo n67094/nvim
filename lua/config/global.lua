@@ -3,6 +3,8 @@ local Module = {}
 function Module.setup()
 	vim.opt.number = true
 	vim.opt.hlsearch = false
+	vim.opt.tabstop = 2
+	vim.opt.shiftwidth = 2
 	vim.opt.autoindent = true
 	vim.opt.list = true
 	vim.opt.conceallevel = 0

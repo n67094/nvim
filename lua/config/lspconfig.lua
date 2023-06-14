@@ -8,7 +8,7 @@ function Module.setup()
 	end
 
 	lspconfig.clangd.setup {}
-	lspconfig.tsserver.setup {}
+	lspconfig.tsserver.setup{}
 	lspconfig.pyright.setup {}
 	lspconfig.rust_analyzer.setup {}
 	lspconfig.lua_ls.setup {}

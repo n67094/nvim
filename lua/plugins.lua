@@ -70,17 +70,18 @@ function Module.setup()
     				require("config.mason").setup()
     				require("config.lspconfig").setup()
     			end,
+    			run = ":MasonUpdate"
 		}
 		
 		-- LSP Autocompletion
 		use {
   			"hrsh7th/nvim-cmp", -- Autocompletion plugin
-  			"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
-  			"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
-  			"L3MON4D3/LuaSnip", -- Snippets plugin
-  			requires = {
-    				"neovim/nvim-lspconfig"
-  			},
+  			 requires = { 
+  			 	"neovim/nvim-lspconfig",
+  			 	"hrsh7th/cmp-nvim-lsp", 
+  			 	"saadparwaiz1/cmp_luasnip",
+  			 	"L3MON4D3/LuaSnip", 
+  			 },
   			config = function()
     				require("config.nvim-cmp").setup()
     			end,

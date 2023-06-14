@@ -77,6 +77,7 @@ function Module.setup()
     			{ name = 'luasnip' },
   		},
 	}
+
 end
 
 return Module

@@ -64,13 +64,19 @@ function Module.setup()
 		-- LSP
 		use {
     			"williamboman/mason.nvim",
-    			"williamboman/mason-lspconfig.nvim",
-    			"neovim/nvim-lspconfig",
+    			 requires = { 
+    				"williamboman/mason-lspconfig.nvim",
+    				"neovim/nvim-lspconfig"
+    			},
     			config = function()
     				require("config.mason").setup()
+    			end,
+		}
+		
+		use {	"neovim/nvim-lspconfig",
+			config = function()
     				require("config.lspconfig").setup()
     			end,
-    			run = ":MasonUpdate"
 		}
 		
 		-- LSP Autocompletion
@@ -79,13 +85,14 @@ function Module.setup()
   			 requires = { 
   			 	"neovim/nvim-lspconfig",
   			 	"hrsh7th/cmp-nvim-lsp", 
-  			 	"saadparwaiz1/cmp_luasnip",
   			 	"L3MON4D3/LuaSnip", 
   			 },
   			config = function()
     				require("config.nvim-cmp").setup()
     			end,
 		}
+		
+		use { "saadparwaiz1/cmp_luasnip" }
 		
 		-- Treesitter
 		 use {

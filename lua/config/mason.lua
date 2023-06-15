@@ -13,7 +13,7 @@ function Module.setup()
 	 	return
 	end
 
-	mason.setup({})
+	mason.setup()
 
 	-- add setup in lspconfig.lua
 	mason_lspconfig.setup {

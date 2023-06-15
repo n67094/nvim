@@ -6,6 +6,8 @@ function Module.setup()
 		print("The plugin lspconfig is not installed")
 		return 
 	end
+	
+	local protocol = require('vim.lsp.protocol')
 
 	lspconfig.clangd.setup {}
 	lspconfig.tsserver.setup{}

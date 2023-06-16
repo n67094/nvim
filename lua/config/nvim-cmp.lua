@@ -29,7 +29,7 @@ function Module.setup()
 	cmp_nvim_lsp.default_capabilities()
 
 	-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-	local servers = { "clangd", "tsserver", "pyright", "rust_analyzer", "lua_ls" }
+	local servers = { "clangd" }
 	for _, lsp in ipairs(servers) do
   		lspconfig[lsp].setup {
     		-- on_attach = my_custom_on_attach,

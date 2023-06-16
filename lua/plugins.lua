@@ -42,17 +42,6 @@ function Module.setup()
 	       			require("config.lualine").setup()
 	     		end,
 		}
-	       
-	        -- Git
-		use {
-  			"tanvirtin/vgit.nvim",
-  			requires = {
-    				'nvim-lua/plenary.nvim'
-  			},
-  			config = function()
-	       			require("config.vgit").setup()
-	     		end,
-		}
 		
 		use {
 			"lewis6991/gitsigns.nvim",
@@ -62,43 +51,32 @@ function Module.setup()
 		}
 		
 		-- LSP
-		use {
+		 use {
     			"williamboman/mason.nvim",
     			 requires = { 
     				"williamboman/mason-lspconfig.nvim",
-    				"neovim/nvim-lspconfig"
+    				"neovim/nvim-lspconfig",
+    				{"ms-jpq/coq_nvim", branch = "coq"}, -- require universal-ctags lib
+        			{"ms-jpq/coq.artifacts", branch = "artifacts"},
     			},
     			config = function()
-    				require("config.mason").setup()
+    				require("config.lsp").setup()
     			end,
 		}
-		
-		use {	"neovim/nvim-lspconfig",
-			config = function()
-    				require("config.lspconfig").setup()
-    			end,
-		}
-		
-		-- LSP Autocompletion
-		use {
-  			"hrsh7th/nvim-cmp", -- Autocompletion plugin
-  			 requires = { 
-  			 	"neovim/nvim-lspconfig",
-  			 	"hrsh7th/cmp-nvim-lsp", 
-  			 	"L3MON4D3/LuaSnip", 
-  			 },
-  			config = function()
-    				require("config.nvim-cmp").setup()
-    			end,
-		}
-		
-		use { "saadparwaiz1/cmp_luasnip" }
 		
 		-- Treesitter
 		 use {
         		"nvim-treesitter/nvim-treesitter",
         		config = function()
         			require("config.treesitter").setup()
+        		end,
+    		}
+    		
+    		-- File explorer
+    		use { 
+    			"luukvbaal/nnn.nvim", -- require nnn lib
+    			config = function()
+        			require("config.nnn").setup()
         		end,
     		}
     		

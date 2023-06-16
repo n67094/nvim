@@ -74,26 +74,21 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["alpha-nvim"] = {
     config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17config.alpha\frequire\0" },
     loaded = true,
     path = "/home/n67094/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["cmp-nvim-lsp"] = {
+  ["coq.artifacts"] = {
     loaded = true,
-    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/coq.artifacts",
+    url = "https://github.com/ms-jpq/coq.artifacts"
   },
-  cmp_luasnip = {
+  coq_nvim = {
     loaded = true,
-    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/coq_nvim",
+    url = "https://github.com/ms-jpq/coq_nvim"
   },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20config.gitsigns\frequire\0" },
@@ -119,19 +114,18 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
-    config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17config.mason\frequire\0" },
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.lsp\frequire\0" },
     loaded = true,
     path = "/home/n67094/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nvim-cmp"] = {
-    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20config.nvim-cmp\frequire\0" },
+  ["nnn.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.nnn\frequire\0" },
     loaded = true,
-    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
+    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/nnn.nvim",
+    url = "https://github.com/luukvbaal/nnn.nvim"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\21config.lspconfig\frequire\0" },
     loaded = true,
     path = "/home/n67094/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -153,17 +147,6 @@ _G.packer_plugins = {
     path = "/home/n67094/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["plenary.nvim"] = {
-    loaded = true,
-    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/plenary.nvim",
-    url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["vgit.nvim"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16config.vgit\frequire\0" },
-    loaded = true,
-    path = "/home/n67094/.local/share/nvim/site/pack/packer/start/vgit.nvim",
-    url = "https://github.com/tanvirtin/vgit.nvim"
-  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "/home/n67094/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
@@ -172,42 +155,34 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\21config.lspconfig\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19config.lualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22config.treesitter\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
--- Config for: mason.nvim
-time([[Config for mason.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17config.mason\frequire\0", "config", "mason.nvim")
-time([[Config for mason.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20config.gitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20config.nvim-cmp\frequire\0", "config", "nvim-cmp")
-time([[Config for nvim-cmp]], false)
+-- Config for: nnn.nvim
+time([[Config for nnn.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.nnn\frequire\0", "config", "nnn.nvim")
+time([[Config for nnn.nvim]], false)
 -- Config for: gruvbox.nvim
 time([[Config for gruvbox.nvim]], true)
 try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19config.gruvbox\frequire\0", "config", "gruvbox.nvim")
 time([[Config for gruvbox.nvim]], false)
--- Config for: vgit.nvim
-time([[Config for vgit.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16config.vgit\frequire\0", "config", "vgit.nvim")
-time([[Config for vgit.nvim]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17config.alpha\frequire\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
+-- Config for: mason.nvim
+time([[Config for mason.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.lsp\frequire\0", "config", "mason.nvim")
+time([[Config for mason.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19config.lualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20config.gitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -25,6 +25,7 @@ function Module.setup()
     		-- custom mappings3
     		vim.keymap.set("n", "t", api.node.open.tab, opts("Open tab"))
 		vim.keymap.set("n", "s", api.node.open.vertical, opts("Open vertical split"))
+
   	end
 
 

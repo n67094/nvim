@@ -1,5 +1,6 @@
 local Module = {}
 
+
 function Module.setup()
 	local status, tabline = pcall(require, "mini.tabline")
 	if (not status) then

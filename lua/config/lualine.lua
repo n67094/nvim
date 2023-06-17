@@ -1,5 +1,6 @@
 local Module = {}
 
+
 function Module.setup()
 	local status, lualine = pcall(require, "lualine")
 	if (not status) then

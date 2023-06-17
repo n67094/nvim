@@ -1,5 +1,6 @@
 local Module = {}
 
+
 function Module.setup()
 	local status_1, treesitter_install = pcall(require, "nvim-treesitter.install")
 	if (not status_1) then

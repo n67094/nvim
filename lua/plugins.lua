@@ -1,5 +1,7 @@
 local Module = {}
 
+
+
 function Module.setup()
 	local status, packer = pcall(require, "packer")
 	if (not status) then
@@ -58,6 +60,7 @@ function Module.setup()
     				"neovim/nvim-lspconfig",
     				{"ms-jpq/coq_nvim", branch = "coq"}, -- require universal-ctags lib
         			{"ms-jpq/coq.artifacts", branch = "artifacts"},
+        			"jose-elias-alvarez/null-ls.nvim"
     			},
     			config = function()
     				require("config.lsp").setup()

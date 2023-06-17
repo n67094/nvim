@@ -1,5 +1,6 @@
 local Module = {}
 
+
 function Module.setup()
 	local status_1, nvim_tree = pcall(require, "nvim-tree")
 	if (not status_1) then

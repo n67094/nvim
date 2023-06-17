@@ -1,5 +1,6 @@
 local Module = {}
 
+
 function Module.setup()
 	local status, nvim_icons = pcall(require, "nvim-web-devicons")
 	if (not status) then

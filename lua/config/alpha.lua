@@ -49,6 +49,7 @@ function Module.setup()
   	dashboard.section.buttons.opts.hl = "Function"
   	dashboard.section.buttons.opts.hl_shortcut = "Type"
   	dashboard.opts.opts.noautocmd = true
+  	dashboard.opts.opts.redraw = true
 
   	alpha.setup(dashboard.opts)
 end

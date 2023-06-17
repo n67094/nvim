@@ -1,6 +1,7 @@
 local Module = {}
 
 function Module.setup()
+
 	-- disable default file explorer
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
@@ -11,6 +12,8 @@ function Module.setup()
 	vim.opt.expandtab = true
 	vim.bo.softtabstop = 2
 	
+	vim.opt.termguicolors = true
+	vim.opt.guitablabel= "%t"
 	vim.opt.number = true
 	vim.opt.hlsearch = false
 	vim.opt.autoindent = true
@@ -18,7 +21,7 @@ function Module.setup()
 	vim.opt.conceallevel = 0
 	vim.opt.cursorline = true
 	vim.opt.exrc = true
-	vim.g.mapleader = "<space>"
+	vim.g.mapleader = ";"
 end
 
 return Module

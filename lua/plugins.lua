@@ -20,20 +20,20 @@ function Module.setup()
 
 	   	-- Theme
 		use {
-	  		"ellisonleao/gruvbox.nvim",
+	  		"neanias/everforest-nvim",
 	     		config = function()
-				require("config.gruvbox").setup()
+				require("config.everforest").setup()
 	      		end,
 	  	}
-
-		-- Greeter start screen
+	  	
+	  	-- Greeter start screen
 		use {
 	  		"goolord/alpha-nvim",
 	      		config = function()
 	       			require("config.alpha").setup()
 	     		end,
 	    	}
-	    	
+
 	    	-- Status line
 	    	use {
   			"nvim-lualine/lualine.nvim",
@@ -73,13 +73,42 @@ function Module.setup()
     		}
     		
     		-- File explorer
-    		use { 
-    			"luukvbaal/nnn.nvim", -- require nnn lib
+    		use {
+    			"nvim-tree/nvim-web-devicons",
     			config = function()
-        			require("config.nnn").setup()
+    				require("config.nvim-icons").setup()
         		end,
     		}
     		
+    		use {
+    			"nvim-tree/nvim-tree.lua",
+ 			requires = {
+    				"nvim-tree/nvim-web-devicons"
+    			},
+    			config = function()
+    				require("config.nvim-tree").setup()
+        		end,	
+    		}
+
+    		use {
+    			'echasnovski/mini.tabline', 
+    			branch = 'stable',
+    			requires = {
+    				"nvim-tree/nvim-web-devicons"
+    			},
+    			config = function()
+        			require("config.tabline").setup()
+        		end,
+    		}
+    		
+    		-- Finder
+    		use {
+  			'nvim-telescope/telescope.nvim', tag = '0.1.2', -- require ripgrep lib
+  			requires = {'nvim-lua/plenary.nvim'},
+  			config = function()
+        			require("config.telescope").setup()
+        		end,
+		}
 	end
 	
 	packer.startup(plugins)

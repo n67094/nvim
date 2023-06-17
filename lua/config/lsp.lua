@@ -36,8 +36,10 @@ function Module.setup()
   		automatic_installation = true,
 	}
 	
-	lspconfig.clangd.setup {}
-	lspconfig.clangd.setup(coq.lsp_ensure_capabilities())
+	lspconfig.clangd.setup {
+		fileType = { "c", "cpp", "h", "hpp"},
+		capabilities = coq.lsp_ensure_capabilities(),
+	}
 end
 
 return Module

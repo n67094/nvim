@@ -93,18 +93,6 @@ function Module.setup()
         		end,	
     		}
 
---[[
-    		use {
-    			'echasnovski/mini.tabline', 
-    			branch = 'stable',
-    			requires = {
-    				"nvim-tree/nvim-web-devicons"
-    			},
-    			config = function()
-        			require("config.tabline").setup()
-        		end,
-    		}
- ]]--   		
     		-- Finder
     		use {
   			'nvim-telescope/telescope.nvim', tag = '0.1.2', -- require ripgrep lib

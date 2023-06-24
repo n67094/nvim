@@ -13,6 +13,7 @@ function Module.setup()
 	if (not status_2) then
 		print("The plugin nvim-treesitter.configs is not installed")
 	 	return
+    
 	end
 
 	local update = treesitter_install.update({ with_sync = true })

@@ -115,6 +115,7 @@ function Module.setup()
 				require("config.telescope").setup()
 			end,
 		})
+
 	end
 
 	packer.startup(plugins)

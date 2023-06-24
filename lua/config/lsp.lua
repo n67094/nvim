@@ -1,5 +1,6 @@
 local Module = {}
 
+
 function Module.setup()
   local status_1, mason = pcall(require, "mason")
   if (not status_1) then

@@ -1,6 +1,7 @@
 local Module = {}
 
 
+
 function Module.setup()
 	local status, gitsigns = pcall(require, "gitsigns")
 	if (not status) then

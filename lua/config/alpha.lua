@@ -1,5 +1,6 @@
 local Module = {}
 
+
 function Module.setup()
 	local status, alpha = pcall(require, "alpha")
 	if not status then

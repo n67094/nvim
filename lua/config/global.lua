@@ -1,5 +1,6 @@
 local Module = {}
 
+
 function Module.setup()
 	-- disable default file explorer
 	vim.g.loaded_netrw = 1

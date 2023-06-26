@@ -12,7 +12,7 @@ function Module.setup()
 	vim.bo.softtabstop = 2
 
 	vim.opt.termguicolors = true
-	vim.opt.guitablabel = "%t"
+	vim.o.guitablabel = "%t"
 	vim.opt.number = true
 	vim.opt.hlsearch = false
 	vim.opt.autoindent = true

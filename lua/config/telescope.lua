@@ -1,6 +1,5 @@
 local Module = {}
 
-
 function Module.setup()
 	local status, telescope = pcall(require, "telescope")
 	if not status then
@@ -9,7 +8,12 @@ function Module.setup()
 	end
 
 	telescope.setup({
-		defaults = { file_ignore_patterns = { "^.git/", "^node_modules/", "^vendor/", "^externals/" } },
+		defaults = {
+			file_ignore_patterns = { "^.git/", "^node_modules/", "^vendor/", "^externals/" },
+			history = {
+				path = "~/.config/nvim/telescope_history",
+			},
+		},
 	})
 
 	vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", { noremap = true, silent = true })

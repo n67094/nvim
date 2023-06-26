@@ -1,6 +1,5 @@
 local Module = {}
 
-
 function Module.setup()
 	local status, alpha = pcall(require, "alpha")
 	if not status then
@@ -33,10 +32,12 @@ function Module.setup()
 	dashboard.section.header.val = header()
 
 	dashboard.section.buttons.val = {
-		dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-		dashboard.button("f", "  Open a file", ":Telescope find_files hidden=true<CR>"),
-		dashboard.button("c", "  Configuration", ":e $MYVIMRC <CR>"),
-		dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+		dashboard.button("e", "  New file", ":ene <bar> startinsert <cr>"),
+		dashboard.button("p", "󰢷  Pick a file     (;fp)", ":NnnPicker<cr>"),
+		dashboard.button("f", "  Find a file     (;ff)", ":Telescope find_files hidden=true<cr>"),
+		dashboard.button("g", "  Search in file  (;fg)", ":Telescope live_grep<cr>"),
+		dashboard.button("c", "  Configuration", ":e $MYVIMRC <cr>"),
+		dashboard.button("q", "󰿅  Quit Neovim", ":qa<cr>"),
 	}
 
 	local function footer()

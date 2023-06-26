@@ -1,6 +1,5 @@
 local Module = {}
 
-
 function Module.setup()
 	-- disable default file explorer
 	vim.g.loaded_netrw = 1
@@ -13,7 +12,7 @@ function Module.setup()
 	vim.bo.softtabstop = 2
 
 	vim.opt.termguicolors = true
-	vim.opt.guitablabel = "%t"
+	vim.o.guitablabel = "%t"
 	vim.opt.number = true
 	vim.opt.hlsearch = false
 	vim.opt.autoindent = true

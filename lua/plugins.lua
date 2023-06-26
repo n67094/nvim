@@ -1,6 +1,5 @@
 local Module = {}
 
-
 function Module.setup()
 	local status, packer = pcall(require, "packer")
 	if not status then
@@ -44,6 +43,16 @@ function Module.setup()
 			end,
 		})
 
+		-- Tabeline
+		use({
+			"crispgm/nvim-tabline",
+			dependencies = { "nvim-tree/nvim-web-devicons" },
+			config = function()
+				require("config.tabline").setup()
+			end,
+		})
+
+		-- Git
 		use({
 			"lewis6991/gitsigns.nvim",
 			config = function()
@@ -82,31 +91,13 @@ function Module.setup()
 			end,
 		})
 
-    --[[
 		use({
-			"nvim-tree/nvim-tree.lua",
-			requires = {
-				"nvim-tree/nvim-web-devicons",
-			},
+			"luukvbaal/nnn.nvim",
 			config = function()
-				require("config.nvim-tree").setup()
+				require("config.nnn").setup()
 			end,
 		})
-    ]]--
 
-		--[[
-    		use {
-    			'echasnovski/mini.tabline',
-    			branch = 'stable',
-    			requires = {
-    				"nvim-tree/nvim-web-devicons"
-    			},
-    			config = function()
-        			require("config.tabline").setup()
-        		end,
-    		}
- ]]
-		--
 		-- Finder
 		use({
 			"nvim-telescope/telescope.nvim",
@@ -116,7 +107,6 @@ function Module.setup()
 				require("config.telescope").setup()
 			end,
 		})
-
 	end
 
 	packer.startup(plugins)

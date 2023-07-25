@@ -38,7 +38,7 @@ function Module.setup()
 
 	-- add setup in lspconfig.lua
 	mason_lspconfig.setup({
-		ensure_installed = { "clangd", "lua_ls", "tsserver" },
+		ensure_installed = { "clangd", "lua_ls", "tsserver", "angularls" },
 		automatic_installation = true,
 	})
 
@@ -48,10 +48,17 @@ function Module.setup()
 	})
 
 	lspconfig.lua_ls.setup({
+		fileType = { "lua" },
 		capabilities = coq.lsp_ensure_capabilities(),
 	})
 
 	lspconfig.tsserver.setup({
+		fileType = { "ts" },
+		capabilities = coq.lsp_ensure_capabilities(),
+	})
+
+	lspconfig.angularls.setup({
+		fileType = { "ts", "html" },
 		capabilities = coq.lsp_ensure_capabilities(),
 	})
 

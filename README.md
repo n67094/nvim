@@ -4,23 +4,21 @@
 
 Those deps should be installed:
 
-- packer
 - universal-ctags
 - ripgrep
 - nnn (filebrowser)
 
 ## Setup
 
-Once deps are installed you can install plugins via:
+Once everything is installed run 
 
 ```
-:PackerInstall
+:COQdeps
 ```
 
-Followed by:
+Followed by
 
 ```
-:PackerCompile
+:COQnow
 ```
 
-Once you restart nvim it should ask you to run few commands, that I encourage you to do.

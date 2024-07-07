@@ -1,132 +1,112 @@
 local Module = {}
 
 function Module.setup()
-	local status, packer = pcall(require, "packer")
-	if not status then
-		print("Packer is not installed")
-		return
-	end
+  require("config.lazy").setup()
+  require("config.global").setup()
 
-	vim.cmd([[packadd packer.nvim]])
+  require("lazy").setup({
 
-	require("config.global").setup()
+    -- Distraction-free coding
+    "folke/zen-mode.nvim",
 
-	local function plugins(use)
-		-- Packer, plugins manager
-		use({ "wbthomason/packer.nvim" })
+    -- Theme
+    {
+      "neanias/everforest-nvim",
+      config = function()
+        require("config.everforest").setup()
+      end,
+    },
 
-		-- Distraction-free coding
-		use({ "folke/zen-mode.nvim" })
+    -- Greeter start screen
+    {
+      'goolord/alpha-nvim',
+      config = function()
+        require("config.alpha").setup()
+      end
+    },
 
-		-- Theme
-		use({
-			"neanias/everforest-nvim",
-			config = function()
-				require("config.everforest").setup()
-			end,
-		})
+    -- Status line
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
+      config = function()
+        require("config.lualine").setup()
+      end,
+    },
 
-		-- Greeter start screen
-		use({
-			"goolord/alpha-nvim",
-			config = function()
-				require("config.alpha").setup()
-			end,
-		})
+    -- Tabeline
+    {
+      "crispgm/nvim-tabline",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        require("config.tabline").setup()
+      end,
+    },
 
-		-- Status line
-		use({
-			"nvim-lualine/lualine.nvim",
-			requires = { "nvim-tree/nvim-web-devicons", opt = true },
-			config = function()
-				require("config.lualine").setup()
-			end,
-		})
+    -- Git
+    {
+      "lewis6991/gitsigns.nvim",
+      config = function()
+        require("config.gitsigns").setup()
+      end,
+    },
 
-		-- Tabeline
-		use({
-			"crispgm/nvim-tabline",
-			dependencies = { "nvim-tree/nvim-web-devicons" },
-			config = function()
-				require("config.tabline").setup()
-			end,
-		})
+    -- LSP
+    {
+      "williamboman/mason.nvim",
+      dependencies = {
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+        { "ms-jpq/coq_nvim",      branch = "coq" }, -- require universal-ctags lib
+        { "ms-jpq/coq.artifacts", branch = "artifacts" },
+        "jose-elias-alvarez/null-ls.nvim",
+      },
+      config = function()
+        require("config.lsp").setup()
+      end,
+    },
 
-		-- Git
-		use({
-			"lewis6991/gitsigns.nvim",
-			config = function()
-				require("config.gitsigns").setup()
-			end,
-		})
+    -- Treesitter
+    {
+      "nvim-treesitter/nvim-treesitter",
+      config = function()
+        require("config.treesitter").setup()
+      end,
+    },
 
-		-- LSP
-		use({
-			"williamboman/mason.nvim",
-			requires = {
-				"williamboman/mason-lspconfig.nvim",
-				"neovim/nvim-lspconfig",
-				{ "ms-jpq/coq_nvim", branch = "coq" }, -- require universal-ctags lib
-				{ "ms-jpq/coq.artifacts", branch = "artifacts" },
-				"jose-elias-alvarez/null-ls.nvim",
-			},
-			config = function()
-				require("config.lsp").setup()
-			end,
-		})
+    -- File explorer
+    {
+      "nvim-tree/nvim-web-devicons",
+      config = function()
+        require("config.nvim-icons").setup()
+      end,
+    },
 
-		-- Treesitter
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			config = function()
-				require("config.treesitter").setup()
-			end,
-		})
+    {
+      "luukvbaal/nnn.nvim",
+      config = function()
+        require("config.nnn").setup()
+      end,
+    },
 
-		-- File explorer
-		use({
-			"nvim-tree/nvim-web-devicons",
-			config = function()
-				require("config.nvim-icons").setup()
-			end,
-		})
+    -- Finder
+    {
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.6", -- require ripgrep lib
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("config.telescope").setup()
+      end,
+    },
 
-		use({
-			"luukvbaal/nnn.nvim",
-			config = function()
-				require("config.nnn").setup()
-			end,
-		})
-
-		-- Finder
-		use({
-			"nvim-telescope/telescope.nvim",
-			tag = "0.1.2", -- require ripgrep lib
-			requires = { "nvim-lua/plenary.nvim" },
-			config = function()
-				require("config.telescope").setup()
-			end,
-		})
-
-		-- Plantuml
-		use({
-			"javiorfo/nvim-soil", -- require sxiv lib
-			requires = { "javiorfo/nvim-nyctophilia" },
-			config = function()
-				require("config.soil").setup()
-			end,
-		})
-
-		-- Indent Blankline
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			config = function()
-				require("config.ibl").setup()
-			end,
-		})
-	end
-
-	packer.startup(plugins)
+    -- Indent Blankline
+    {
+      "lukas-reineke/indent-blankline.nvim",
+      config = function()
+        require("config.ibl").setup()
+      end,
+    }
+  })
 end
 
 return Module

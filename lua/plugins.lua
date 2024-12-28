@@ -20,6 +20,7 @@ function Module.setup()
     -- Greeter start screen
     {
       'goolord/alpha-nvim',
+
       config = function()
         require("config.alpha").setup()
       end
@@ -29,6 +30,7 @@ function Module.setup()
     {
       "nvim-lualine/lualine.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
+
       config = function()
         require("config.lualine").setup()
       end,
@@ -38,6 +40,7 @@ function Module.setup()
     {
       "crispgm/nvim-tabline",
       dependencies = { "nvim-tree/nvim-web-devicons" },
+
       config = function()
         require("config.tabline").setup()
       end,
@@ -46,6 +49,7 @@ function Module.setup()
     -- Git
     {
       "lewis6991/gitsigns.nvim",
+
       config = function()
         require("config.gitsigns").setup()
       end,
@@ -61,6 +65,7 @@ function Module.setup()
         { "ms-jpq/coq.artifacts", branch = "artifacts" },
         "jose-elias-alvarez/null-ls.nvim",
       },
+
       config = function()
         require("config.lsp").setup()
       end,
@@ -69,6 +74,7 @@ function Module.setup()
     -- Treesitter
     {
       "nvim-treesitter/nvim-treesitter",
+
       config = function()
         require("config.treesitter").setup()
       end,
@@ -77,6 +83,7 @@ function Module.setup()
     -- File explorer
     {
       "nvim-tree/nvim-web-devicons",
+
       config = function()
         require("config.nvim-icons").setup()
       end,
@@ -84,6 +91,7 @@ function Module.setup()
 
     {
       "luukvbaal/nnn.nvim",
+
       config = function()
         require("config.nnn").setup()
       end,
@@ -94,6 +102,7 @@ function Module.setup()
       "nvim-telescope/telescope.nvim",
       tag = "0.1.6", -- require ripgrep lib
       dependencies = { "nvim-lua/plenary.nvim" },
+
       config = function()
         require("config.telescope").setup()
       end,
@@ -102,10 +111,23 @@ function Module.setup()
     -- Indent Blankline
     {
       "lukas-reineke/indent-blankline.nvim",
+
       config = function()
         require("config.ibl").setup()
       end,
-    }
+    },
+
+    -- Comment
+    {
+      "numToStr/Comment.nvim",
+
+      config = function()
+        require("config.comment").setup()
+      end,
+    },
+
+    -- Custom stuff
+    require("config.custom").setup()
   })
 end
 

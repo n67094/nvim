@@ -6,6 +6,7 @@ function Module.setup()
     return
   end
 
+  -- Document file
   vim.api.nvim_create_user_command("Dfile", function()
     local lines = {
       "/**",
@@ -23,6 +24,7 @@ function Module.setup()
     vim.api.nvim_buf_set_lines(0, 0, 0, false, lines)
   end, {})
 
+  -- Document function
   vim.api.nvim_create_user_command("Dfunc", function()
     local lines = {
       "/**",
@@ -40,7 +42,24 @@ function Module.setup()
     vim.api.nvim_buf_set_lines(0, line_num - 1, line_num - 1, false, lines)
   end, {})
 
-  vim.api.nvim_create_user_command("Dhead", function()
+  -- Document structure
+  vim.api.nvim_create_user_command("Dstruct", function()
+    local lines = {
+      "/**",
+      "* @struct ",
+      " *",
+      "* @brief",
+      " *",
+      "* @details",
+      " *",
+      "* @note",
+      "*/" }
+    local line_num = vim.fn.line(".") -- Insert above the current line
+    vim.api.nvim_buf_set_lines(0, line_num - 1, line_num - 1, false, lines)
+  end, {})
+
+  -- Generate header guards
+  vim.api.nvim_create_user_command("Ghead", function()
     local filename = vim.fn.expand("%:t:r"):upper():gsub("[^%w_]", "_")
     local lines = {
       "#ifndef " .. filename .. "_H",
@@ -51,7 +70,8 @@ function Module.setup()
     vim.api.nvim_buf_set_lines(0, 0, 0, false, lines)
   end, {})
 
-  vim.api.nvim_create_user_command("Dinc", function()
+  -- Generate include
+  vim.api.nvim_create_user_command("Ginc", function()
     -- Get the current file name and change its extension to .h
     local filename = vim.fn.expand("%:t:r") .. ".h"
 

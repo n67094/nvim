@@ -6,6 +6,12 @@ function Module.setup()
 
   require("lazy").setup({
 
+    --  Multi cursor edition
+    "mg979/vim-visual-multi",
+
+    -- Github Copilote
+    "github/copilot.vim",
+
     -- Distraction-free coding
     "folke/zen-mode.nvim",
 

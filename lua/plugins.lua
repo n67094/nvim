@@ -6,14 +6,28 @@ function Module.setup()
 
   require("lazy").setup({
 
+    -- Personal wiki
+    "vimwiki/vimwiki",
+
     --  Multi cursor edition
     "mg979/vim-visual-multi",
 
     -- Github Copilote
-    "github/copilot.vim",
+    {
+      "github/copilot.vim",
+      config = function()
+        vim.g.copilot_no_tab_map = true -- Disable default <Tab> mapping
+
+        -- Map <C-j> (Ctrl+j) to accept Copilot suggestions
+        vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+      end
+    },
 
     -- Distraction-free coding
     "folke/zen-mode.nvim",
+
+    -- Git diff
+    "sindrets/diffview.nvim",
 
     -- Theme
     {

@@ -9,8 +9,13 @@ function Module.setup()
 
   everforest.setup({
     -- Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
-    background = "soft"
+    background = "soft",
+    transparent_background_level = 2,
   })
+
+  -- enable true color support --
+  vim.opt.termguicolors = true
+
 
   -- Theme configuration
   vim.o.background = "dark"

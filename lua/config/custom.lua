@@ -16,7 +16,7 @@ function Module.setup()
       " *",
       " * @details",
       " *",
-      " * @author n67094",
+      " * @author nsix",
       " * @date " .. os.date("%Y-%m-%d"),
       " */",
       ""
@@ -43,7 +43,7 @@ function Module.setup()
   end, {})
 
   -- Document structure
-  vim.api.nvim_create_user_command("Dstruct", function()
+  vim.api.nvim_create_user_command("Dstru", function()
     local lines = {
       "/**",
       "* @struct ",
@@ -76,7 +76,7 @@ function Module.setup()
     local filename = vim.fn.expand("%:t:r") .. ".h"
 
     -- Generate the include line
-    local line = "#include <" .. filename .. ">"
+    local line = "#include \"" .. filename .. "\""
 
     -- Insert the line at the current cursor position
     local cursor = vim.api.nvim_win_get_cursor(0)

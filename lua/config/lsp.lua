@@ -13,12 +13,6 @@ function Module.setup()
     return
   end
 
-  local status_3, lspconfig = pcall(require, "lspconfig")
-  if not status_3 then
-    print("The plugin lspconfig is not installed")
-    return
-  end
-
   local status_4, null_ls = pcall(require, "null-ls")
   if not status_4 then
     print("The plugin null-ls is not installed")
@@ -38,27 +32,22 @@ function Module.setup()
 
   -- add setup in lspconfig.lua
   mason_lspconfig.setup({
-    ensure_installed = { "clangd", "lua_ls", "ts_ls", "angularls" },
+    ensure_installed = { "clangd", "lua_ls", "ts_ls" },
     automatic_installation = true,
   })
 
-  lspconfig.clangd.setup({
+  vim.lsp.config("clangd", {
     fileType = { "c", "cpp", "h", "hpp" },
     capabilities = coq.lsp_ensure_capabilities(),
   })
 
-  lspconfig.lua_ls.setup({
+  vim.lsp.config("lua_ls", {
     fileType = { "lua" },
     capabilities = coq.lsp_ensure_capabilities(),
   })
 
-  lspconfig.ts_ls.setup({
+  vim.lsp.config("ts_ls", {
     fileType = { "ts" },
-    capabilities = coq.lsp_ensure_capabilities(),
-  })
-
-  lspconfig.angularls.setup({
-    fileType = { "ts", "html" },
     capabilities = coq.lsp_ensure_capabilities(),
   })
 

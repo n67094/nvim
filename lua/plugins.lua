@@ -52,7 +52,7 @@ function Module.setup()
       dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 
       config = function()
-        require("config.lualine").setup()
+        --  require("config.lualine").setup()
       end,
     },
 
@@ -77,18 +77,24 @@ function Module.setup()
 
     -- LSP
     {
-      "williamboman/mason.nvim",
+      "mason-org/mason.nvim",
+
+      config = function()
+        require("mason").setup()
+        require("config.lsp").setup()
+      end,
+    },
+
+    {
+      "mason-org/mason-lspconfig.nvim",
+
       dependencies = {
-        "williamboman/mason-lspconfig.nvim",
+        { "mason-org/mason.nvim", opts = {} },
         "neovim/nvim-lspconfig",
         { "ms-jpq/coq_nvim",      branch = "coq" }, -- require universal-ctags lib
         { "ms-jpq/coq.artifacts", branch = "artifacts" },
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
       },
-
-      config = function()
-        require("config.lsp").setup()
-      end,
     },
 
     -- Treesitter
@@ -143,6 +149,23 @@ function Module.setup()
 
       config = function()
         require("config.comment").setup()
+      end,
+    },
+
+    -- Formatter (for Prettier integration)
+    {
+      "stevearc/conform.nvim",
+
+      config = function()
+        require("conform").setup({
+          formatters_by_ft = {
+            javascript = { "prettierd", "prettier", stop_after_first = true },
+          },
+          format_on_save = {
+            timeout_ms = 500,
+            lsp_format = "fallback",
+          },
+        })
       end,
     },
 

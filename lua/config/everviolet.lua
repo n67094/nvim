@@ -1,16 +1,14 @@
 local Module = {}
 
 function Module.setup()
-  local status, everforest = pcall(require, "everforest")
+  local status, everviolet = pcall(require, "evergarden")
   if (not status) then
-    print("The plugin everforest is not installed")
+    print("The plugin everviolet is not installed")
     return
   end
 
-  everforest.setup({
-    -- Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
-    background = "soft", -- 'soft'|'medium'|'hard'
-    transparent_background_level = 2,
+  everviolet.setup({
+    background = "winter", -- 'winter'|'fall'|'spring'|'summer'
   })
 
   -- enable true color support --
@@ -19,7 +17,7 @@ function Module.setup()
 
   -- Theme configuration
   vim.o.background = "dark"
-  vim.cmd [[colorscheme everforest]]
+  vim.cmd [[colorscheme evergarden]]
 
   vim.keymap.set('n', '<leader>bl', '<cmd>set bg=light<cr>', { noremap = true, silent = true })
   vim.keymap.set('n', '<leader>bd', '<cmd>set bg=dark<cr>', { noremap = true, silent = true })

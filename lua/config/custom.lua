@@ -17,7 +17,7 @@ function Module.setup()
       " * @details",
       " *",
       " * @author nsix",
-      " * @date " .. os.date("%Y-%m-%d"),
+      " * @copyright Copyright (c) " .. os.date("%Y") .. " nsix. All rights reserved.",
       " */",
       ""
     }

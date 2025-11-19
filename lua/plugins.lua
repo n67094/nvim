@@ -31,9 +31,10 @@ function Module.setup()
 
     -- Theme
     {
-      "neanias/everforest-nvim",
+      -- "neanias/everforest-nvim",
+      "everviolet/nvim",
       config = function()
-        require("config.everforest").setup()
+        require("config.everviolet").setup()
       end,
     },
 

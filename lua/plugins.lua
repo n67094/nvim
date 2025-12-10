@@ -12,7 +12,7 @@ function Module.setup()
     --  Multi cursor edition
     "mg979/vim-visual-multi",
 
-    -- Github Copilote
+    -- Github Copilot
     {
       "github/copilot.vim",
       config = function()
@@ -21,6 +21,15 @@ function Module.setup()
         -- Map <C-j> (Ctrl+j) to accept Copilot suggestions
         vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
       end
+    },
+
+    -- Github Copilot chat
+    {
+      "CopilotC-Nvim/CopilotChat.nvim",
+      dependencies = {
+        { "nvim-lua/plenary.nvim", branch = "master" },
+      },
+      build = "make tiktoken",
     },
 
     -- Distraction-free coding

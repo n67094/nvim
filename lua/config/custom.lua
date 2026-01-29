@@ -12,11 +12,6 @@ function Module.setup()
       "/**",
       " * @file " .. vim.fn.expand("%:t"),
       " *",
-      " * @brief",
-      " *",
-      " * @details",
-      " *",
-      " * @author nsix",
       " * @copyright Copyright (c) " .. os.date("%Y") .. " nsix. All rights reserved.",
       " */",
       ""
@@ -62,10 +57,10 @@ function Module.setup()
   vim.api.nvim_create_user_command("Ghead", function()
     local filename = vim.fn.expand("%:t:r"):upper():gsub("[^%w_]", "_")
     local lines = {
-      "#ifndef " .. filename .. "_H",
-      "#define " .. filename .. "_H",
+      "#ifndef " .. filename .. "_H_",
+      "#define " .. filename .. "_H_",
       "",
-      "#endif // " .. filename .. "_H"
+      "#endif // " .. filename .. "_H_"
     }
     vim.api.nvim_buf_set_lines(0, 0, 0, false, lines)
   end, {})

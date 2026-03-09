@@ -29,6 +29,9 @@ function Module.setup()
       dependencies = {
         { "nvim-lua/plenary.nvim", branch = "master" },
       },
+      config = function()
+        require("config.copilot").setup()
+      end,
       build = "make tiktoken",
     },
 
@@ -40,10 +43,11 @@ function Module.setup()
 
     -- Theme
     {
-      -- "neanias/everforest-nvim",
-      "everviolet/nvim",
+      "neanias/everforest-nvim",
+      -- "everviolet/nvim",
       config = function()
-        require("config.everviolet").setup()
+        require("config.everforest").setup()
+        -- require("config.everviolet").setup()
       end,
     },
 

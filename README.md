@@ -1,4 +1,4 @@
-# NEOVIM LUA CONFIG
+# NEOVIM CONFIG
 
 ## Dependencies
 
@@ -10,7 +10,7 @@ Those deps should be installed:
 
 ## Setup
 
-Once everything is installed run 
+Once everything is installed open neovim and run the following command:
 
 ```
 :COQdeps

@@ -317,29 +317,38 @@ require("lazy").setup({
       lazy = false,
       build = ':TSUpdate',
       config = function()
-        local treesitter = require("nvim-treesitter")
-
-        treesitter.install({
-          "c",
-          "cmake",
-          "cpp",
-          "gitignore",
-          "glsl",
-          "javascript",
-          "json",
-          "lua",
-          "make",
-          "meson",
-          "python",
-          "rust",
-          "scss",
-          "sql",
-          "tsx",
-          "typescript",
-          "vim",
-          "vimdoc",
+        require("nvim-treesitter.configs").setup({
+          ensure_installed = {
+            "c",
+            "cmake",
+            "cpp",
+            "gitignore",
+            "glsl",
+            "javascript",
+            "json",
+            "lua",
+            "make",
+            "meson",
+            "python",
+            "rust",
+            "scss",
+            "sql",
+            "tsx",
+            "typescript",
+            "vim",
+            "vimdoc",
+          },
+          sync_install = false,
+          auto_install = true,
+          highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+          },
+          indent = {
+            enable = false,
+          },
         })
-      end
+      end,
     },
     {
       "nvim-telescope/telescope.nvim", -- require ripgrep lib
